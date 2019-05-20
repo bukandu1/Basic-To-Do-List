@@ -21,9 +21,23 @@ class App extends Component {
       {
         id: 3,
         title: 'Walk the dog',
-        completed: false
+        completed: true
       }
     ]
+  }
+  markComplete = (id) =>{
+    console.log("Hiiii", id)
+    console.log(id)
+    // this.setState(todos: this.state.todos.map(todo=>
+    //   {
+    //     if todo.id == id {
+    //       todo.completed = !todo.completed
+    //     }
+    //     return todo;
+    //   }
+    // )
+    // )
+
   }
 
   render(){
@@ -32,7 +46,7 @@ class App extends Component {
       //Cannot use class attribute for html
       <div className="App"> 
         <h1> Bev's App</h1>
-        <Todos todos= {this.state.todos}/>
+        <Todos todos= {this.state.todos} markComplete={this.markComplete}/>
       </div>
     );
 }
