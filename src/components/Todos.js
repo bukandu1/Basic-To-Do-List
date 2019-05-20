@@ -3,6 +3,10 @@ import TodoItem from './TodoItem';
 import PropTypes from 'prop-types';
 
 class Todos extends Component{
+    // markComplete = (id) => {
+    //     console.log(id)
+    // }
+    
     render() {
         return(
         //Cannot use class attribute for html
@@ -11,7 +15,7 @@ class Todos extends Component{
         // </div>
         this.props.todos.map((todo) => (
             //what do we what to display/return for each todo?
-            <TodoItem key={todo.id} todo={todo}></TodoItem>
+            <TodoItem key={todo.id} todo={todo} markComplete={this.props.markComplete}></TodoItem>
         ))
     );
 }
