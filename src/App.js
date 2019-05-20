@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import Todos from './components/Todos';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  //Include state that will be used for all components. Different
+  //components can also have their own state
+  //JS Objects here (here it will be an array of objects. Can come from a db)
+  state = {
+    todos: [
+      { id: 1,
+        title: 'Take out the trash',
+        completed: false
+      },
+      {
+        id: 2,
+        title: 'Clean the bathroom',
+        completed: false
+      },
+      {
+        id: 3,
+        title: 'Walk the dog',
+        completed: false
+      }
+    ]
+  }
+
+  render(){
+    console.log(this.state.todos)
+    return (
+      //Cannot use class attribute for html
+      <div className="App"> 
+        <h1> Bev's App</h1>
+        <Todos todos= {this.state.todos}/>
+      </div>
+    );
 }
+}
+
 
 export default App;
